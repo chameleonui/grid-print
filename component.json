@@ -1,0 +1,15 @@
+{
+  "name": "grid-print",
+  "repo": "chameleonui/grid-print",
+  "description": "Specific grid for printing",
+  "version": "1.0.0",
+  "keywords": [],
+  "dependencies": {
+    "chameleonui/grid-core": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "styles": [
+    "grid-print.styl"
+  ]
+}

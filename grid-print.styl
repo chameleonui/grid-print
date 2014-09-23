@@ -1,0 +1,50 @@
+// =============================================================================
+// Fixed Grid
+// =============================================================================
+// Inspired by Zurb's Foundation
+
+
+// Use flags
+// =============================================================================
+use-print-grid-tiles ?= true;
+
+// Variables
+// =============================================================================
+// Globals, inherit from other installed grid
+grid-columns-count ?= 12;
+grid-row-width ?= 64em;
+grid-row-max-width ?= grid-row-width;
+grid-gutter-width ?= 1.875em;
+grid-column-class ?= "column";
+grid-tiles-columns-from ?= 1;
+grid-tiles-columns-to ?= 12;
+
+
+// Custom print variables
+print-grid-span-class ?= "print";
+print-grid-offset-class ?= "print-offset";
+print-grid-pull-class ?= "print-pull";
+print-grid-push-class ?= "print-push";
+print-grid-centered-class ?= "print-centered";
+print-grid-uncentered-class ?= "print-uncentered";
+print-grid-tiles-class ?= "print-tiles";
+
+
+// Mixins
+// =============================================================================
+grid-print()
+    @media print
+        grid-column-span(print-grid-span-class, grid-columns-count)
+        grid-column-offset(print-grid-offset-class, grid-columns-count)
+        grid-column-pull(print-grid-pull-class, grid-columns-count)
+        grid-column-push(print-grid-push-class, grid-columns-count)
+        grid-column-centered(grid-column-class, print-grid-centered-class)
+
+        if (use-print-grid-tiles)
+            [class*={'"' + print-grid-tiles-class + '"'}]
+                block-grid(false, grid-gutter-width)
+
+            for i in grid-tiles-columns-from..grid-tiles-columns-to
+                .{print-grid-tiles-class}-{(i)}
+                    block-grid(i, grid-gutter-width, false)
+
