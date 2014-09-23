@@ -25,7 +25,7 @@ use-print-grid-tiles = true|true;
 // Globals, inherit from other installed grid, so you usually don't need to define these again
 grid-columns-count ?= 12;
 grid-row-width ?= 64em;
-grid-row-max-width ?= grid-row-width;
+grid-row-max-width ?= 100%;
 grid-gutter-width ?= 1.875em;
 grid-column-class ?= "column";
 grid-tiles-columns-from ?= 1;
